@@ -44,9 +44,9 @@ Route::patch('/tpq/kelas/update/{kelas}', 'KelasController@update')->middleware(
 Route::get('/home/ustadz', 'ustadController@index')->name('ustad');
 Route::get('home/ustadz/tambah', 'ustadController@create')->middleware('auth','admin')->name('create.ustad');
 Route::post('/home/ustadz/store', 'ustadController@store')->middleware('auth','admin')->name('store.ustad');
-Route::get('/home/ustadz/delete/{data}', 'ustadController@destroy')->name('delete.ustad');
-Route::get('/home/ustadz/edit/{data}', 'ustadController@edit')->name('edit.ustad');
-Route::patch('/home/ustadz/update/{data}', 'ustadController@update')->name('update.ustad');
+Route::get('/home/ustadz/delete/{data}', 'ustadController@destroy')->middleware('auth','admin')->name('delete.ustad');
+Route::get('/home/ustadz/edit/{data}', 'ustadController@edit')->middleware('auth','admin')->name('edit.ustad');
+Route::patch('/home/ustadz/update/{data}', 'ustadController@update')->middleware('auth','admin')->name('update.ustad');
 
 
 Route::get('/home/user', 'MbohController@index')->middleware('auth','admin')->name('user');

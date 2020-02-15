@@ -16,7 +16,7 @@ class CreateUstadTable extends Migration
         Schema::create('ustad', function (Blueprint $table) {
             $table->bigIncrements('u_id');
             $table->string('nama');
-            $table->enum('ustad', (array)['ustadz','ustadzah']);
+            $table->enum('ustad', (array)['Ustadz','Ustadzah']);
             $table->timestamps();
         });
     }

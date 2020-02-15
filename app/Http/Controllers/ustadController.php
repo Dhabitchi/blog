@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\santri;
+use App\User;
 use  App\ustad;
 use Illuminate\Http\Request;
 
@@ -27,7 +27,9 @@ class ustadController extends Controller
      */
     public function create()
     {
-        return view('tpq.createustad');
+        $utd = User::all();
+
+        return view('tpq.createustad',compact('utd'));
     }
 
     /**
@@ -62,7 +64,9 @@ class ustadController extends Controller
      */
     public function edit(ustad $data)
     {
-        return view('tpq.editustad',compact('data'));
+        $utd = User::all();
+
+        return view('tpq.editustad',compact('data','utd'));
     }
 
     /**
