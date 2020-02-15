@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\santri;
 use  App\ustad;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,9 @@ class ustadController extends Controller
      */
     public function index()
     {
-        return view('tpq.indexustad');
+        $utd = ustad::all();
+
+        return view('tpq.indexustad',compact('utd'));
     }
 
     /**
@@ -55,11 +58,11 @@ class ustadController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function edit($id)
+    public function edit(ustad $data)
     {
-        //
+        return view('tpq.editustad',compact('data'));
     }
 
     /**
@@ -67,21 +70,26 @@ class ustadController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, ustad $data)
     {
-        //
+        $data->update([
+            'nama' => $request->nama,
+            'ustad' => $request->ustad
+        ]);
+        return redirect()->route('ustad');
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy($id)
+    public function destroy(ustad $data)
     {
-        //
+        $data->delete();
+        return redirect()->route('ustad')->with('alert-succes', 'Data berhasil dihapus!');
     }
 }

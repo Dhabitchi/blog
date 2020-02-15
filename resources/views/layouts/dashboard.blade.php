@@ -29,7 +29,9 @@
         <div class="sidebar-heading">Setting Master</div>
         <div class="list-group list-group-flush">
             <a href="{{route('home')}}" class="list-group-item list-group-item-action bg-light">Dashboard</a>
+            @if(auth()->user()->role=='admin')
             <a href="{{route('user')}}" class="list-group-item list-group-item-action bg-light">User</a>
+            @endif
             <a href="{{route('santri')}}" class="list-group-item list-group-item-action bg-light">Santri</a>
             <a href="{{route('kelas')}}" class="list-group-item list-group-item-action bg-light">Kelas</a>
             <a href="{{route('ustad')}}" class="list-group-item list-group-item-action bg-light">Ustadz</a>
