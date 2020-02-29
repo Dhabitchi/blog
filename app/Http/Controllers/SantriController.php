@@ -14,18 +14,19 @@ class SantriController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return Response
+     * @return Factory|View
      */
     public function index()
     {
-        $data = santri::all();
+
+        $data = santri::orderBy('nama')->paginate(10);
         return view('tpq.santri', compact('data'));
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return Response
+     * @return Factory|View
      */
     public function create()
     {
@@ -36,7 +37,7 @@ class SantriController extends Controller
      * Store a newly created resource in storage.
      *
      * @param Request $request
-     * @return Response
+     * @return RedirectResponse
      */
     public function store(Request $request)
     {
