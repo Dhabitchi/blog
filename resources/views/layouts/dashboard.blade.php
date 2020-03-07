@@ -36,6 +36,8 @@
             <a href="{{route('kelas')}}" class="list-group-item list-group-item-action bg-light">Kelas</a>
             <a href="{{route('ustad')}}" class="list-group-item list-group-item-action bg-light">Ustadz</a>
             <a href="{{route('TPQ')}}" class="list-group-item list-group-item-action bg-light">Kabupaten Kota</a>
+            <a href="{{route('ngaji')}}" class="list-group-item list-group-item-action bg-light">Ngaji</a>
+            <a href="{{route('alquran')}}" class="list-group-item list-group-item-action bg-light">Al-quran</a>
         </div>
     </div>
     <!-- /#sidebar-wrapper -->

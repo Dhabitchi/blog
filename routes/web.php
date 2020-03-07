@@ -51,5 +51,8 @@ Route::patch('/home/ustadz/update/{data}', 'ustadController@update')->middleware
 
 Route::get('/home/user', 'MbohController@index')->middleware('auth','admin')->name('user');
 
+Route::get('/home/Al-quran', 'Alquran@index')->name('alquran');
+Route::get('/home/ngaji', 'ngaji@index')->name('ngaji');
+
 
 
