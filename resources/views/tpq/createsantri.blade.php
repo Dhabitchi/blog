@@ -34,7 +34,11 @@
                 @foreach($jilid as $j)
                     <option value="{{ $j }}">{{ $j }}</option>
                 @endforeach
-            </select>
+            </select><br>
+            Tgl/Bln/Thn Lahir :<br>
+            <input type="date" name="lahir"><br>
+            Tempat Lahir :<br>
+            <input name="tempat">
             <br><br>
             <input type="submit" value="Submit" class="btn btn-dark btn-sm">
             <a href="{{route('santri')}}" class="btn btn-dark btn-sm">Back</a>

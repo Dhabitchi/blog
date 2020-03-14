@@ -8,11 +8,11 @@ class santri extends Model
 {
     protected $table = 'santri';
     protected $primaryKey = 's_id';
-    protected $fillable = ['nama', 'kelas', 'jilid'];
+    protected $fillable = ['nama', 'kelas', 'jilid', 'lahir', 'tempat'];
 
     public function user(){
         return $this -> belongsTo('App\User');
     }
 
-    
+
 }

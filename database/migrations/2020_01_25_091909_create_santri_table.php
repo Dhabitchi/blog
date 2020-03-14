@@ -18,6 +18,8 @@ class CreateSantriTable extends Migration
             $table->string('nama');
             $table->string('kelas');
             $table->string('jilid');
+            $table->date('lahir');
+            $table->string('tempat');
             $table->timestamps();
         });
     }

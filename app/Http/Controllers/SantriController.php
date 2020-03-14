@@ -41,7 +41,7 @@ class SantriController extends Controller
      */
     public function store(Request $request)
     {
-        santri::create($request->only(['nama', 'kelas', 'jilid']));
+        santri::create($request->only(['nama', 'kelas', 'jilid','lahir','tempat']));
 
         return redirect()->route('santri');
     }
@@ -80,7 +80,9 @@ class SantriController extends Controller
         $santri->update([
             'nama' => $request->nama,
             'kelas' => $request->kelas,
-            'jilid' => $request->jilid
+            'jilid' => $request->jilid,
+            'lahir' => $request->lahir,
+            'tempat' => $request->tempat
         ]);
         return redirect()->route('santri');
     }
@@ -95,5 +97,14 @@ class SantriController extends Controller
     {
         $data->delete();
         return redirect()->route('santri')->with('alert-succes', 'Data berhasil dihapus!');
+    }
+
+
+    public function cari(Request $request){
+        $cari = $request->cari;
+
+        $santri = santri::Where('nama','like',"%".$cari."%")->paginate(10);
+
+        return view('tpq.santri',['data'=>$santri]);
     }
 }

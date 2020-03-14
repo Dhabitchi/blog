@@ -33,6 +33,7 @@ Route::post('/tpq/santri/store', 'SantriController@store')->middleware('auth','a
 Route::get('/tpq/santri/delete/{data}', 'SantriController@destroy')->middleware('auth','admin')->name('delete.santri');
 Route::get('/tpq/santri/edit/{santri}', 'SantriController@edit')->middleware('auth','admin')->name('edit.santri');
 Route::patch('/tpq/santri/update/{santri}', 'SantriController@update')->middleware('auth','admin')->name('update.santri');
+Route::get('/tpq/santri/cari', 'SantriController@cari')->name('cari');
 
 Route::get('/tpq/kelas', 'KelasController@index')->name('kelas');
 Route::get('/tpq/kelas/create', 'KelasController@create')->middleware('auth','admin')->name('create.kelas');
@@ -47,7 +48,6 @@ Route::post('/home/ustadz/store', 'ustadController@store')->middleware('auth','a
 Route::get('/home/ustadz/delete/{data}', 'ustadController@destroy')->middleware('auth','admin')->name('delete.ustad');
 Route::get('/home/ustadz/edit/{data}', 'ustadController@edit')->middleware('auth','admin')->name('edit.ustad');
 Route::patch('/home/ustadz/update/{data}', 'ustadController@update')->middleware('auth','admin')->name('update.ustad');
-
 
 Route::get('/home/user', 'MbohController@index')->middleware('auth','admin')->name('user');
 
